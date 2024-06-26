@@ -17,3 +17,5 @@ def create_model(tokenizer):
         eos_token_id=tokenizer['EOS_None'],
     )
     return AutoModelForCausalLM.from_config(model_config)
+
+

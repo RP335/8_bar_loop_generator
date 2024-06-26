@@ -38,7 +38,6 @@ MODEL_CONFIG = {
     "max_position_embeddings": 8192,
 }
 
-# Training config
 TRAINING_CONFIG = {
     "per_device_train_batch_size": 16,
     "per_device_eval_batch_size": 48,
@@ -51,7 +50,6 @@ TRAINING_CONFIG = {
     "eval_steps": 1000,
 }
 
-# Generation config
 GENERATION_CONFIG = {
     "max_new_tokens": 200,
     "num_beams": 1,
