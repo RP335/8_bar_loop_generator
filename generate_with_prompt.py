@@ -16,7 +16,6 @@ music_tokenizer = create_and_train_tokenizer()
 
 
 def text_to_music_tokens(prompt, gpt2_tokenizer, music_tokenizer):
-    # Encode the text prompt into tokens using GPT-2 tokenizer
     gpt2_tokens = gpt2_tokenizer.encode(prompt, return_tensors='pt')
 
     music_tokens = []
@@ -31,7 +30,7 @@ def text_to_music_tokens(prompt, gpt2_tokenizer, music_tokenizer):
 def generate_midi_from_text(prompt):
     input_tokens = text_to_music_tokens(prompt, gpt2_tokenizer, music_tokenizer)
 
-    model_path = Path("runs")  # Ensure this is the correct path to your saved model
+    model_path = Path("runs")
     model = AutoModelForCausalLM.from_pretrained(model_path)
     model.eval()
 
@@ -47,7 +46,6 @@ def generate_midi_from_text(prompt):
         pad_token_id=music_tokenizer.pad_token_id,
     )
 
-    # Generate 
     res = model.generate(
         inputs=input_tokens.to(model.device),
         generation_config=generation_config
@@ -66,4 +64,4 @@ def generate_midi_from_text(prompt):
     print(f"Generated tokens saved to {tokens_path}")
 
 
-generate_midi_from_text("Create a smooth jazz melody with a lively rhythm.")
+generate_midi_from_text("Create a smooth jazz melody with a lively rhythm. 8 bars only")

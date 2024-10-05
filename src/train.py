@@ -1,3 +1,5 @@
+# from miditok example notebook
+
 from miditok.pytorch_data import DataCollator
 from transformers import Trainer, TrainingArguments
 from evaluate import load as load_metric

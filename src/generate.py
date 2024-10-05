@@ -7,8 +7,6 @@ from torch.utils.data import DataLoader
 from transformers import AutoModelForCausalLM, GenerationConfig
 
 
-
-
 # Here the sequences are padded to the left, so that the last token along the time dimension
 # is always the last token of each seq, allowing to efficiently generate by batch
 def generate_midi(dataset_test, tokenizer):
@@ -16,7 +14,7 @@ def generate_midi(dataset_test, tokenizer):
     generation_config = GenerationConfig(
         max_new_tokens=200,  # extends samples by 200 tokens
         num_beams=1,  # no beam search
-        do_sample=True,  # but sample instead
+        do_sample=True,  # but sample insteadz
         temperature=0.7,
         top_k=15,
         top_p=0.95,
