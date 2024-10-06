@@ -10,6 +10,7 @@ from miditok.utils.utils import get_deepest_common_subdir, split_score_per_track
 from symusic import Score, TextMeta, TimeSignature
 from symusic.core import TimeSignatureTickList
 from tqdm import tqdm
+from typing import Optional
 
 
 def split_files_for_training(
@@ -17,9 +18,9 @@ def split_files_for_training(
         tokenizer: MusicTokenizer,
         save_dir: Path,
         max_seq_len: int,
-        average_num_tokens_per_note: float | None = None,
+        average_num_tokens_per_note: Optional[float] = None,
         num_overlap_bars: int = 1,
-        min_seq_len: int | None = None,
+        min_seq_len: Optional[int] = None,
 ) -> list[Path]:
     """
     Split a list of music files into smaller chunks to use for training.
